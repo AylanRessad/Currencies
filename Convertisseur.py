@@ -19,6 +19,7 @@ def load_api_key():
         return None
 
         "aaaaaa ceci est un test"
+        "et ceci est un autre test, pour voir si ça marche des deux côtés"
 def convert_currency():
     api_key = load_api_key()
     
