@@ -82,5 +82,5 @@ convert_button.grid(row=3, columnspan=2, padx=10, pady=20)
 
 result_label = tk.Label(root, text="", font=("Arial", 10, "bold"))
 result_label.grid(row=4, columnspan=2, padx=10, pady=10)
-print("test");
+
 root.mainloop()
