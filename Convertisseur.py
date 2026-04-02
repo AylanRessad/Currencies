@@ -3,7 +3,6 @@ from tkinter import messagebox, simpledialog
 import requests
 import os
 
-# Nom du fichier où sera stockée la clé
 CONFIG_FILE = "api_key.txt"
 
 def load_api_key():
@@ -12,17 +11,14 @@ def load_api_key():
         with open(CONFIG_FILE, "r") as f:
             return f.read().strip()
     else:
-        # Demande la clé à l'utilisateur
         key = simpledialog.askstring("Configuration", "Veuillez entrer votre clé API (ExchangeRatesAPI) :", parent=root)
         if key:
-            # Sauvegarde la clé pour la prochaine fois
             with open(CONFIG_FILE, "w") as f:
                 f.write(key)
             return key
         return None
 
 def convert_currency():
-    # On récupère la clé stockée
     api_key = load_api_key()
     
     if not api_key:
@@ -52,18 +48,16 @@ def convert_currency():
     except Exception as e:
         messagebox.showerror("Erreur", f"Une erreur est survenue : {e}")
 
-# --- Interface TKinter ---
 root = tk.Tk()
 root.title("Convertisseur de devises")
 root.geometry("400x300")
 
-# On s'assure que la fenêtre est créée avant de demander la clé si besoin
-root.withdraw() # Cache la fenêtre principale temporairement
+root.withdraw() 
 API_KEY = load_api_key()
 if not API_KEY:
-    root.destroy() # Quitte si aucune clé n'est fournie
+    root.destroy() 
 else:
-    root.deiconify() # Réaffiche la fenêtre principale
+    root.deiconify() 
 
 # Layout
 label_montant = tk.Label(root, text="Montant :")
